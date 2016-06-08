@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{## Start with  defaults from defaults.sls ##}
+{% import_yaml 'artifactory/defaults.yaml' as default_settings %}
+
+
+{## Merge in artifactory pillar ##}
+{% set artifactory = salt['pillar.get'](
+        'template',
+        default=default_settings.artifactory,
+        merge=True
+    )
+%}

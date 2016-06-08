@@ -1,0 +1,14 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+artifactory:
+  pro: True
+  home: /var/opt/jfrog/artifactory
+  mysql:
+    username: artifactory
+    password: artifactory
+    host: localhost
+    db: artifactory
+    port: 3306
+    jdbc_version: 5.1.24
+
+
