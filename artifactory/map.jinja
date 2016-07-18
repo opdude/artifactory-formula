@@ -7,7 +7,7 @@
 
 {## Merge in artifactory pillar ##}
 {% set artifactory = salt['pillar.get'](
-        'template',
+        'artifactory',
         default=default_settings.artifactory,
         merge=True
     )

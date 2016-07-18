@@ -61,9 +61,20 @@ jdbc-driver:
     - makedirs: True
     - source: http://repo.jfrog.org/artifactory/remote-repos/mysql/mysql-connector-java/{{ artifactory.mysql.jdbc_version }}/{{ jar }}
     - source_hash: md5=30111a9076c1a8f581d8bb2243053efc
+    - user: artifactory
+    - group: artifactory
 
 artifactory-pkg:
   pkg.installed:
     - name: {{ pkg }}
     - require:
       - pkg: python-software-properties
+
+artifactory-permissions:
+    file.directory:
+        - name: {{ artifactory.home }}
+        - user: artifactory
+        - group: artifactory
+        - recurse:
+            - user
+            - group
